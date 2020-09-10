@@ -17,6 +17,7 @@ public class JsonUtil {
     private static List<String> releaseDateArray = new ArrayList<>();
     private static List<String> imagePathArray   = new ArrayList<>();
     private static List<String> posterPathArray  = new ArrayList<>();
+    private static List<String> idArray          = new ArrayList<>();
 
     public static void parseMovieJson(String json) {
         Log.d("WWD", "in parseMovieJson input json is " + json);
@@ -51,6 +52,7 @@ public class JsonUtil {
         String overviewString    = "";
         String posterPathString  = "";
         String releaseDateString = "";
+        String idString          = "";
 
         if (!titlesArray.isEmpty())
             titlesArray.clear();
@@ -62,6 +64,8 @@ public class JsonUtil {
             posterPathArray.clear();
         if (!releaseDateArray.isEmpty())
             releaseDateArray.clear();
+        if (!idArray.isEmpty())
+            idArray.clear();
 
         for (int i =0 ; i < len ;i++) {
             try {
@@ -82,11 +86,14 @@ public class JsonUtil {
                 releaseDateString = result.get("release_date").toString();
                 releaseDateArray.add(releaseDateString);
 
+                idString = result.get("id").toString();
+
                 Log.d("WWD", "i = " + i + " title is " + titleString);
                 Log.d("WWD", "i = " + i + " popularity is " + popularityString);
                 Log.d("WWD", "i = " + i + " overview is " + overviewString);
                 Log.d("WWD", "i = " + i + " poster path is " + posterPathString);
                 Log.d("WWD", "i = " + i + " release date is " + releaseDateString);
+                Log.d("WWD", "i = " + i + " id is "  + idString);
                 dataRead = true;
 
             } catch (JSONException e) {
@@ -119,4 +126,6 @@ public class JsonUtil {
     public static String getPosterPath(int index) {
         return posterPathArray.get(index);
     }
+
+    public static String getID(int index) { return idArray.get(index); }
 }

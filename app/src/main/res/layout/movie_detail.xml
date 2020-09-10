@@ -18,6 +18,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textSize="24sp"/>
+    <Button
+        android:id="@+id/btn_playtrailer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="playTrailer"
+        android:layout_gravity="center_horizontal" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

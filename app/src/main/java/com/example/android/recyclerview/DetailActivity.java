@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,6 +48,10 @@ public class DetailActivity extends AppCompatActivity {
         fullPath = BASE_URL + relativePath;
         Log.d("WWD", "full path is " + fullPath);
         Picasso.get().load(fullPath).into(mThumbnail);
+
+    }
+
+    public void playTrailer(View view) {
 
     }
 }
