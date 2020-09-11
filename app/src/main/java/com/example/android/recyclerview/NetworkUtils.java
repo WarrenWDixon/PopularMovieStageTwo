@@ -23,6 +23,7 @@ public class NetworkUtils {
             "https://api.themoviedb.org/3/movie/top_rated?api_key=44bb9f3b21602f274a1127bb251ab87d&language=en-US&page=1";
     final static String GET_MOVIE_DETAILS_START = "https://api.themoviedb.org/3/movie/";
     final static String GET_MOVIE_DETAILS_END = "?api_key=44bb9f3b21602f274a1127bb251ab87d&language=en-US&page=1&append_to_response=videos";
+    final static String YOUTUBE_URL = "https://www.youtube.com/watch?v=";
 
     private static boolean networkConnected;
 
@@ -67,6 +68,22 @@ public class NetworkUtils {
         }
 
         return url;
+    }
+
+    public static URL buildTrailerUrl(String key) {
+        String urlString = YOUTUBE_URL + key;
+        Uri builtUri = Uri.parse(urlString).buildUpon()
+                .build();
+
+        URL url = null;
+        try {
+            url = new URL(builtUri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        return url;
+
     }
 
 

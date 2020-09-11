@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("WWD", "in main activity on create");
         makeMovieSearchQuery(SearchType.PopularMovies);
         try {
             Thread.sleep(1000);
@@ -133,8 +134,10 @@ public class MainActivity extends AppCompatActivity
         URL fetchMovieUrl;
         if (type == SearchType.PopularMovies)
            fetchMovieUrl = NetworkUtils.buildPopularUrl();
-        else
+        else if (type == SearchType.TopRatedMovies)
             fetchMovieUrl = NetworkUtils.buildTopRatedUrl();
+        else
+            return;
         new MovieQueryTask().execute(fetchMovieUrl);
     }
 
